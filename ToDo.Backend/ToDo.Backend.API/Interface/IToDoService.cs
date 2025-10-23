@@ -8,6 +8,5 @@ namespace ToDo.Backend.API.Interface
         Task<ToDoItem?> GetByIdAsync(int id);
         Task AddAsync(ToDoItem item);
         Task UpdateAsync(ToDoItem item);
-        Task SaveChangesAsync();
     }
 }
