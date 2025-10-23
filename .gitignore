@@ -1,2 +1,5 @@
 ﻿ToDo.Backend/.vs
 ToDo.Backend/ToDo.Backend.API/obj
+ToDo.Backend/ToDo.Backend.Data/obj
+ToDo.Backend/ToDo.Backend.API/bin
+ToDo.Backend/ToDo.Backend.Data/bin
