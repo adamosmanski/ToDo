@@ -1,7 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
 using ToDo.Backend.API.Interface;
-using ToDo.Backend.API.Serivce;
+using ToDo.Backend.API.MappingProfiles;
+using ToDo.Backend.API.Service;
 using ToDo.Backend.Data;
 using ToDo.Backend.Data.Interface;
 using ToDo.Backend.Data.Repository;
@@ -27,6 +28,8 @@ namespace ToDo.Backend.API
             builder.Services.AddDbContext<ToDoContext>(options =>
                options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+            builder.Services.AddAutoMapper(typeof(ToDoProfile).Assembly);
+
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAngularClient", policy =>
@@ -38,10 +41,14 @@ namespace ToDo.Backend.API
             });
             var app = builder.Build();
 
-            using (var scope = app.Services.CreateScope())
+
+            if (app.Environment.IsDevelopment())
             {
-                var db = scope.ServiceProvider.GetRequiredService<ToDoContext>();
-                db.Database.Migrate();
+                using (var scope = app.Services.CreateScope())
+                {
+                    var db = scope.ServiceProvider.GetRequiredService<ToDoContext>();
+                    db.Database.Migrate();
+                }
             }
 
             // Configure the HTTP request pipeline.
@@ -52,6 +59,7 @@ namespace ToDo.Backend.API
             }
 
             app.UseHttpsRedirection();
+            app.UseRouting();
             app.UseCors("AllowAngularClient");
             app.UseAuthorization();
 

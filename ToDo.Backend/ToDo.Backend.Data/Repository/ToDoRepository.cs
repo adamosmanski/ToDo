@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,29 +11,41 @@ namespace ToDo.Backend.Data.Repository
 {
     public class ToDoRepository : IToDoRepository
     {
-        public Task AddAsync(ToDoItem item)
+        private readonly ToDoContext _context;
+        public ToDoRepository(ToDoContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
+        }
+        public async Task AddAsync(ToDoItem item)
+        {
+            await _context.ToDoItems.AddAsync(item);
         }
 
-        public Task<IEnumerable<ToDoItem>> GetAllAsync()
+        public async Task<IEnumerable<ToDoItem>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            return await _context.ToDoItems
+                .AsNoTracking()
+                .ToListAsync();
         }
 
-        public Task<ToDoItem?> GetByIdAsync(int id)
+        public async Task<ToDoItem?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.ToDoItems.FindAsync(id);
         }
 
         public Task SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return _context.SaveChangesAsync();
         }
 
-        public Task UpdateAsync(ToDoItem item)
+        public async Task UpdateAsync(ToDoItem item)
         {
-            throw new NotImplementedException();
+            var existing = await _context.ToDoItems.FindAsync(item.Id);
+            if (existing == null) return;
+
+            existing.Title = item.Title;
+            existing.Description = item.Description;
+            existing.IsCompleted = item.IsCompleted;
         }
     }
 }
