@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ToDo.Backend.API.Interface;
-using ToDo.Backend.API.Models;
+using ToDo.Backend.Application.Interface;
+using ToDo.Backend.Domain.Models;
 
 namespace ToDo.Backend.API.Controllers
 {

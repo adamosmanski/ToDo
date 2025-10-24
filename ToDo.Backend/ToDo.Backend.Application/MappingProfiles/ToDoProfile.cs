@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using ToDo.Backend.API.Models;
 
 namespace ToDo.Backend.API.MappingProfiles
 {
@@ -7,7 +6,7 @@ namespace ToDo.Backend.API.MappingProfiles
     {
         public ToDoProfile()
         {
-            CreateMap<ToDoItem, Data.Model.ToDoItem>().ReverseMap();
+            CreateMap<Domain.Models.ToDoItem, Data.Model.ToDoItem>().ReverseMap();
         }
     }
 }

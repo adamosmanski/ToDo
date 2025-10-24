@@ -1,8 +1,8 @@
 
 using Microsoft.EntityFrameworkCore;
-using ToDo.Backend.API.Interface;
 using ToDo.Backend.API.MappingProfiles;
-using ToDo.Backend.API.Service;
+using ToDo.Backend.Application.Interface;
+using ToDo.Backend.Application.Service;
 using ToDo.Backend.Data;
 using ToDo.Backend.Data.Interface;
 using ToDo.Backend.Data.Repository;

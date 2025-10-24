@@ -5,3 +5,7 @@ ToDo.Backend/ToDo.Backend.API/bin
 ToDo.Backend/ToDo.Backend.Data/bin
 ToDo.Backend/ToDo.Backend.Tests/obj
 ToDo.Backend/ToDo.Backend.Tests/bin
+ToDo.Backend/ToDo.Backend.Application/bin
+ToDo.Backend/ToDo.Backend.Application/obj
+ToDo.Backend/ToDo.Backend.Domain/bin
+ToDo.Backend/ToDo.Backend.Domain/obj
