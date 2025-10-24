@@ -1,0 +1,10 @@
+<div *ngIf="task; else noSelection" class="details">
+  <h2>{{task.title}}</h2>
+  <p><strong>ID:</strong> {{task.id}}</p>
+  <p><strong>Opis:</strong> {{task.description}}</p>
+  <p><strong>Status:</strong> {{task.isCompleted ? 'Zakończone' : 'W toku'}}</p>
+</div>
+
+<ng-template #noSelection>
+  <p>Wybierz zadanie z listy po lewej stronie.</p>
+</ng-template>

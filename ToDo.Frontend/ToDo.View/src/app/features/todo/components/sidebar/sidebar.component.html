@@ -1,0 +1,17 @@
+<div class="sidebar">
+  <h3>Zadania</h3>
+
+  <ul class="task-list">
+    <li *ngFor="let task of tasks"
+        [class.completed]="task.isCompleted"
+        (click)="select(task)">
+      {{task.id}} | {{task.title}}
+    </li>
+  </ul>
+
+  <div class="add-section">
+    <input [(ngModel)]="newTitle" placeholder="Tytuł..." />
+    <textarea [(ngModel)]="newOpis" placeholder="Opis..."></textarea>
+    <button (click)="addTask()">➕ Dodaj</button>
+  </div>
+</div>
