@@ -1,8 +1,16 @@
 <div *ngIf="task; else noSelection" class="details">
-  <h2>{{task.title}}</h2>
-  <p><strong>ID:</strong> {{task.id}}</p>
-  <p><strong>Opis:</strong> {{task.description}}</p>
-  <p><strong>Status:</strong> {{task.isCompleted ? 'Zakończone' : 'W toku'}}</p>
+  <div class="header">
+    <h2>{{ task.title }}</h2>
+    <label>
+      Status:
+      <select [ngModel]="task.isCompleted" (ngModelChange)="onStatusChange($event)">
+        <option [ngValue]="false">Nowe</option>
+        <option [ngValue]="true">Zrobione</option>
+      </select>
+    </label>
+  </div>
+
+  <p>{{ task.description || 'Brak opisu' }}</p>
 </div>
 
 <ng-template #noSelection>

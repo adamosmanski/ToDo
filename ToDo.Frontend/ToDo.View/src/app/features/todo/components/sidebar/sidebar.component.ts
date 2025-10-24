@@ -14,15 +14,19 @@ import { FormsModule } from '@angular/forms';
 export class SidebarComponent implements OnInit {
   tasks: ToDoItem[] = [];
   newTitle = '';
-  newOpis = '';
+  newDescription = '';
 
   @Output() selected = new EventEmitter<ToDoItem>();
 
   constructor(private todoService: ToDoService) {}
 
-  ngOnInit(): void {
+ngOnInit(): void {
+  this.loadTasks();
+
+  this.todoService.tasksUpdated.subscribe(() => {
     this.loadTasks();
-  }
+  });
+}
 
   loadTasks() {
     this.todoService.getAll().subscribe({
@@ -39,11 +43,11 @@ export class SidebarComponent implements OnInit {
 
   addTask() {
     if (!this.newTitle.trim()) return;
-    const newTask = { title: this.newTitle, opis: this.newOpis, isCompleted: false };
+    const newTask = { title: this.newTitle, description: this.newDescription, isCompleted: false };
     this.todoService.add(newTask).subscribe({
       next: _ => {
         this.newTitle = '';
-        this.newOpis = '';
+        this.newDescription = '';
         this.loadTasks();
       }
     });

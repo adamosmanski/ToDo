@@ -33,15 +33,15 @@
 }
 
 .add-section {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .add-section input,
 .add-section textarea {
-  margin-bottom: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.6rem;
 }
 
 button {
@@ -55,4 +55,8 @@ button {
 
 button:hover {
   background: #005ea0;
+}
+.add-section button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
 }
