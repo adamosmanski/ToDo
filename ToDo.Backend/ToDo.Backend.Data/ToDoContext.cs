@@ -39,6 +39,14 @@ namespace ToDo.Backend.Data
                 entity.Property(e => e.CreatedAt)
                       .HasColumnName("created_at")
                       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+                entity.HasData(
+                    new ToDoItem { Id = 1,Title = "Zadanie 1", Description = "Opis 1", IsCompleted = false, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) },
+                    new ToDoItem { Id = 2, Title = "Zadanie 2", Description = "Opis 2", IsCompleted = true, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) },
+                    new ToDoItem { Id = 3, Title = "Zadanie 3", Description = "Opis 3", IsCompleted = false, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) },
+                    new ToDoItem { Id = 4, Title = "Zadanie 4", Description = "Opis 4", IsCompleted = false, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) },
+                    new ToDoItem { Id = 5, Title = "Zadanie 5", Description = "Opis 5", IsCompleted = true, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) },
+                    new ToDoItem { Id = 6, Title = "Zadanie 6", Description = "Opis 6", IsCompleted = false, CreatedAt = DateTime.SpecifyKind(DateTime.UtcNow, DateTimeKind.Utc) });
             });
         }
     }
