@@ -2,8 +2,8 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
 using ToDo.Backend.API.Controllers;
-using ToDo.Backend.API.Interface;
-using ToDo.Backend.API.Models;
+using ToDo.Backend.Application.Interface;
+using ToDo.Backend.Domain.Models;
 
 namespace ToDo.Backend.Tests
 {
