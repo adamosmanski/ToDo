@@ -1,4 +1,4 @@
-﻿namespace ToDo.Backend.API.Models
+﻿namespace ToDo.Backend.Domain.Models
 {
     public class ToDoItem
     {

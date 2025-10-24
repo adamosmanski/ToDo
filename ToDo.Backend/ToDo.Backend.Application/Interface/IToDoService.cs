@@ -1,6 +1,8 @@
-﻿using ToDo.Backend.API.Models;
+﻿
 
-namespace ToDo.Backend.API.Interface
+using ToDo.Backend.Domain.Models;
+
+namespace ToDo.Backend.Application.Interface
 {
     public interface IToDoService
     {

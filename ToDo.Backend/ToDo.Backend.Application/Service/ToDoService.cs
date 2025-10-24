@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using ToDo.Backend.API.Interface;
-using ToDo.Backend.API.Models;
+using ToDo.Backend.Application.Interface;
 using ToDo.Backend.Data.Interface;
+using ToDo.Backend.Domain.Models;
 
-namespace ToDo.Backend.API.Service
+namespace ToDo.Backend.Application.Service
 {
     public class ToDoService : IToDoService
     {
