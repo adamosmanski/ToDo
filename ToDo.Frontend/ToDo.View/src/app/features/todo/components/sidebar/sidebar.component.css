@@ -1,0 +1,62 @@
+.sidebar {
+  width: 280px;
+  background: #f4f4f4;
+  padding: 1rem;
+  border-right: 1px solid #ccc;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.task-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-list li {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.task-list li:hover {
+  background: #e3e3e3;
+}
+
+.task-list li.completed {
+  color: #777;
+  text-decoration: line-through;
+}
+
+.add-section {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.add-section input,
+.add-section textarea {
+  padding: 0.6rem;
+}
+
+button {
+  cursor: pointer;
+  background: #0078d7;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #005ea0;
+}
+.add-section button {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+}

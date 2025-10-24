@@ -34,7 +34,7 @@ namespace ToDo.Backend.API
             {
                 options.AddPolicy("AllowAngularClient", policy =>
                 {
-                    policy.WithOrigins("http://localhost:4200")
+                    policy.WithOrigins("https://localhost:4200", "http://localhost:4200")
                           .AllowAnyHeader()
                           .AllowAnyMethod();
                 });
